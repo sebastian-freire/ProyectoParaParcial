@@ -1,0 +1,102 @@
+{
+  "Quizes": [
+    {
+      "id_quiz": 1,
+      "name": "Matemáticas Básicas",
+      "description": "Quiz de operaciones aritméticas básicas"
+    },
+    {
+      "id_quiz": 2,
+      "name": "Cultura General",
+      "description": "Prueba de conocimientos generales"
+    },
+    {
+      "id_quiz": 3,
+      "name": "Opinión Personal",
+      "description": "Preguntas abiertas de reflexión"
+    }
+  ],
+  "Quizes_questions": [
+    {
+      "1": {
+        "id_questions": [101, 102]
+      },
+      "2": {
+        "id_questions": [201, 202]
+      },
+      "3": {
+        "id_questions": [301, 302]
+      }
+    }
+  ],
+  "Question": [
+    {
+      "id_question": 101,
+      "question_name": "¿Cuánto es 5 + 3?",
+      "type": "multiple_choice",
+      "options": ["6", "7", "8", "9"]
+    },
+    {
+      "id_question": 102,
+      "question_name": "¿Cuánto es 12 - 4?",
+      "type": "multiple_choice",
+      "options": ["6", "7", "8", "9"]
+    },
+    {
+      "id_question": 201,
+      "question_name": "¿Cuál es la capital de Francia?",
+      "type": "multiple_choice",
+      "options": ["Madrid", "París", "Berlín", "Londres"]
+    },
+    {
+      "id_question": 202,
+      "question_name": "¿En qué continente está Brasil?",
+      "type": "multiple_choice",
+      "options": ["Europa", "África", "América", "Asia"]
+    },
+    {
+      "id_question": 301,
+      "question_name": "Describe brevemente cómo te sientes hoy.",
+      "type": "text",
+      "options": []
+    },
+    {
+      "id_question": 302,
+      "question_name": "¿Qué opinas sobre el impacto de la tecnología en la educación?",
+      "type": "text",
+      "options": []
+    }
+  ],
+  "Answers": [
+    {
+      "id_question": 101,
+      "user": "usuario1",
+      "answer": "8"
+    },
+    {
+      "id_question": 102,
+      "user": "usuario1",
+      "answer": "8"
+    },
+    {
+      "id_question": 201,
+      "user": "usuario2",
+      "answer": "París"
+    },
+    {
+      "id_question": 202,
+      "user": "usuario2",
+      "answer": "América"
+    },
+    {
+      "id_question": 301,
+      "user": "usuario3",
+      "answer": "Hoy me siento motivado y con energía."
+    },
+    {
+      "id_question": 302,
+      "user": "usuario3",
+      "answer": "Creo que la tecnología ha mejorado el acceso a la educación, pero también puede distraer."
+    }
+  ]
+}
