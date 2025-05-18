@@ -18,53 +18,48 @@
   ],
   "Quizes_questions": [
     {
-      "1": {
-        "id_questions": [101, 102]
-      },
-      "2": {
-        "id_questions": [201, 202]
-      },
-      "3": {
-        "id_questions": [301, 302]
-      }
-    }
-  ],
-  "Question": [
-    {
-      "id_question": 101,
-      "question_name": "¿Cuánto es 5 + 3?",
-      "type": "multiple_choice",
-      "options": ["6", "7", "8", "9"]
-    },
-    {
-      "id_question": 102,
-      "question_name": "¿Cuánto es 12 - 4?",
-      "type": "multiple_choice",
-      "options": ["6", "7", "8", "9"]
-    },
-    {
-      "id_question": 201,
-      "question_name": "¿Cuál es la capital de Francia?",
-      "type": "multiple_choice",
-      "options": ["Madrid", "París", "Berlín", "Londres"]
-    },
-    {
-      "id_question": 202,
-      "question_name": "¿En qué continente está Brasil?",
-      "type": "multiple_choice",
-      "options": ["Europa", "África", "América", "Asia"]
-    },
-    {
-      "id_question": 301,
-      "question_name": "Describe brevemente cómo te sientes hoy.",
-      "type": "text",
-      "options": []
-    },
-    {
-      "id_question": 302,
-      "question_name": "¿Qué opinas sobre el impacto de la tecnología en la educación?",
-      "type": "text",
-      "options": []
+      "1": [
+        {
+          "id_question": 101,
+          "question_name": "¿Cuánto es 5 + 3?",
+          "type": "multiple_choice",
+          "options": ["6", "7", "8", "9"]
+        },
+        {
+          "id_question": 102,
+          "question_name": "¿Cuánto es 12 - 4?",
+          "type": "multiple_choice",
+          "options": ["6", "7", "8", "9"]
+        }
+      ],
+      "2": [
+        {
+          "id_question": 201,
+          "question_name": "¿Cuál es la capital de Francia?",
+          "type": "multiple_choice",
+          "options": ["Madrid", "París", "Berlín", "Londres"]
+        },
+        {
+          "id_question": 202,
+          "question_name": "¿En qué continente está Brasil?",
+          "type": "multiple_choice",
+          "options": ["Europa", "África", "América", "Asia"]
+        }
+      ],
+      "3": [
+        {
+          "id_question": 301,
+          "question_name": "Describe brevemente cómo te sientes hoy.",
+          "type": "text",
+          "options": []
+        },
+        {
+          "id_question": 302,
+          "question_name": "¿Qué opinas sobre el impacto de la tecnología en la educación?",
+          "type": "text",
+          "options": []
+        }
+      ]
     }
   ],
   "Answers": [

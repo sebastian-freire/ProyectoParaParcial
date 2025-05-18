@@ -8,13 +8,11 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/*" element={<Navigate replace to="/login" />} />
-
         <Route path="/login" element={<LoginPage />} />
 
         <Route path="/quiz_selector" element={<QuizSelectorPage />} />
 
-        <Route path="/quiz" element={<QuizPage />} />
+        <Route path="/quiz/:id_quiz" element={<QuizPage />} />
       </Routes>
     </>
   );

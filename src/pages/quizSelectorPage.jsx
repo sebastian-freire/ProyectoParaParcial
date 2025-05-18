@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import QuizCard from "../components/quiz/quizCard";
+//Aca selecciono el rat: RAT1, RAT2, RAT3...
+import { React, useState, useEffect } from "react";
+import QuizSelectorCard from "../components/quiz/quizSelectorCard";
 
 function QuizSelectorPage() {
   const [quiz, setQuiz] = useState([]);
@@ -17,15 +18,13 @@ function QuizSelectorPage() {
   useEffect(() => {
     quizFetch();
   }, []);
-  {
-    console.log("Quiz Selector");
-  }
+
   return (
     <>
       {isLoading && <span>Loading... </span>}
-      {quiz.map((q) => {
-        <QuizCard quiz={q} />;
-      })}
+      {quiz.map((q) => (
+        <QuizSelectorCard quiz={q} />
+      ))}
     </>
   );
 }
