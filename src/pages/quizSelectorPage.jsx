@@ -6,27 +6,33 @@ function QuizSelectorPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   const quizFetch = async () => {
-    const URL = `http://localhost:3000/Quizes`;
-    const res = await fetch(URL);
-    if (!res.ok) throw new Error("Error al traer la información");
-    setIsLoading(false);
-    const json = await res.json();
-    setQuiz(json);
+    try {
+      const URL = `http://localhost:3000/Quizes`;
+      const res = await fetch(URL);
+      if (!res.ok) throw new Error("Error al traer la información");
+      const json = await res.json();
+      setQuiz(json);
+      setIsLoading(false); // mover después de setQuiz
+    } catch (error) {
+      console.error("Error al cargar los quizzes:", error.message);
+    }
   };
 
   useEffect(() => {
     quizFetch();
   }, []);
-  {
-    console.log("Quiz Selector");
-  }
+
   return (
-    <>
+    <div style={{ padding: "2rem" }}>
+      <h2>Seleccioná un cuestionario</h2>
       {isLoading && <span>Loading... </span>}
-      {quiz.map((q) => {
-        <QuizCard quiz={q} />;
-      })}
-    </>
+
+      <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+        {quiz.map((q) => (
+          <QuizCard key={q.id} quiz={q} />
+        ))}
+      </div>
+    </div>
   );
 }
 
