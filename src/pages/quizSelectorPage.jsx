@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
-import QuizCard from "../components/quiz/quizCard";
+import QuizCard from "../components/quizSelector/quizSelectorCard";
+import "./quizSelectorPage.css"
+//import { useUser } from "../context/userContext"
 
 function QuizSelectorPage() {
   const [quiz, setQuiz] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  //const { userValue } = useUser() //Aca esta el valor que devuelve el contexto
 
   const quizFetch = async () => {
     const URL = `http://localhost:3000/Quizes`;
@@ -17,15 +21,15 @@ function QuizSelectorPage() {
   useEffect(() => {
     quizFetch();
   }, []);
-  {
-    console.log("Quiz Selector");
-  }
+
   return (
     <>
       {isLoading && <span>Loading... </span>}
-      {quiz.map((q) => {
-        <QuizCard quiz={q} />;
-      })}
+      {!isLoading && <div className="quiz-selector-container">
+      <h1 className="quiz-selector-title">Categorias de Preguntas</h1></div>}
+      {quiz.map((q) => (
+        <QuizCard quiz={q} />
+      ))}
     </>
   );
 }

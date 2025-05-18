@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "./pages/loginPage";
 import QuizSelectorPage from "./pages/quizSelectorPage";
-import QuizPage from "./pages/quizPage";
+import QuestionPage from "./pages/questionPage";
 import "./App.css";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
 
         <Route path="/quiz_selector" element={<QuizSelectorPage />} />
 
-        <Route path="/quiz" element={<QuizPage />} />
+        <Route path="/question" element={<QuestionPage />} />
       </Routes>
     </>
   );
