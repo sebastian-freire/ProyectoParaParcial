@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import BotonAtras from "./BotonAtras";
+import { ResultadoContext } from "./ResultadoContext";
 
 function PreguntaMO({ data, setData }) {
+  const { agregarRespuesta } = useContext(ResultadoContext);
   const [seleccion, setSeleccion] = useState("");
   const { id, qid } = useParams();
   const navigate = useNavigate();
@@ -13,8 +15,11 @@ function PreguntaMO({ data, setData }) {
 
   const handleRespuesta = () => {
     if (!seleccion) return alert("Debes seleccionar una opción");
+    /*
     const nuevasRespuestas = [...data.respuestas, { preguntaId: `${id}-${qid}`, respuesta: seleccion }]; //Hago un nuevo array de respuestas que tiene las anteriores + la pregunta + subpregunta + respuesta actual
     setData({ ...data, respuestas: nuevasRespuestas }); //Copio toto el data y sobreescribo el campo respuestas
+    */
+   agregarRespuesta(`${id}-${qid}`, seleccion);
     navigate(`/wizard/resultados`);
   };
 

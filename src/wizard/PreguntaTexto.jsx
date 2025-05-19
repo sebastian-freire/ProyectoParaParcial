@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import BotonAtras from "./BotonAtras";
+import { ResultadoContext } from "./ResultadoContext";
 
 function PreguntaTexto({ data, setData }) {
+  const { agregarRespuesta } = useContext(ResultadoContext);
   const { id, qid } = useParams();
   const navigate = useNavigate();
   const [respuesta, setRespuesta] = useState("");
@@ -11,9 +13,11 @@ function PreguntaTexto({ data, setData }) {
   const pregunta = cuestionario?.preguntas?.[qid];
 
   const handleSubmit = () => {
-    const nuevasRespuestas = [...data.respuestas, { preguntaId: `${id}-${qid}`, respuesta }];
-    setData({ ...data, respuestas: nuevasRespuestas });
+    //const nuevasRespuestas = [...data.respuestas, { preguntaId: `${id}-${qid}`, respuesta }];
+    agregarRespuesta(`${id}-${qid}`, respuesta);
     navigate(`/wizard/resultados`);
+    //setData({ ...data, respuestas: nuevasRespuestas });
+    //navigate(`/wizard/resultados`);
   };
 
   return (

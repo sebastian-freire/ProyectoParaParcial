@@ -1,25 +1,19 @@
 import BotonAtras from "./BotonAtras";
+import { ResultadoContext } from "./ResultadoContext";
+import { useContext } from "react";
 
 function Resultados({ data }) {
-  return (
-    <div style={{ padding: "20px" }}>
-      <h2>Resumen de Resultados</h2>
-      <p><strong>Usuario:</strong> {data.usuario}</p>
-
-      <h3>Respuestas:</h3>
+  const { usuario, respuestas } = useContext(ResultadoContext);
+   return (
+    <div>
+      <h2>Resumen</h2>
+      <p>Usuario: {usuario}</p>
       <ul>
-        {data.respuestas.length === 0 && <p>No se respondieron preguntas.</p>}
-        {data.respuestas.map((r, i) => (
-          <li key={i}>
-            <strong>Pregunta ID:</strong> {r.preguntaId} <br />
-            <strong>Respuesta:</strong> {r.respuesta}
-          </li>
+        {respuestas.map((r, i) => (
+          <li key={i}>{r.preguntaId}: {r.respuesta}</li>
         ))}
       </ul>
-        <BotonAtras />
-      <button onClick={() => alert("Datos enviados correctamente")}>
-        Enviar al servidor
-      </button>
+      <BotonAtras/>
     </div>
   );
 }

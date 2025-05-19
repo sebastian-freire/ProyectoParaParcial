@@ -1,17 +1,20 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { ResultadoContext } from "./ResultadoContext"; 
 
-function Usuario({ data, setData }) {
+function Usuario() {
   const navigate = useNavigate();
+  const { usuario, setUsuario } = useContext(ResultadoContext);
 
   return (
     <div>
       <h2>Usuario</h2>
       <input
         type="text"
-        value={data.usuario}
-        onChange={(e) => setData({ ...data, usuario: e.target.value })} //Crea una copia de data y sobreescribe el campo usuario con el valor nuevo. Se ejecuta cada vez que el usuario escribe algo
+        value={usuario}
+        onChange={(e) => setUsuario(e.target.value)} // se sobreescribe el contexto con el valor nuevo cada vez que se hace el input
       />
-      <button onClick={() => navigate("/wizard/Questions")}>Usuario</button>
+      <button onClick={() => navigate("/wizard/questions")}>Continuar</button>
     </div>
   );
 }
