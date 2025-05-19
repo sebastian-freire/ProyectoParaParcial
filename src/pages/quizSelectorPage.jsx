@@ -10,20 +10,21 @@ function QuizSelectorPage() {
     const URL = `http://localhost:3000/Quizes`;
     const res = await fetch(URL);
     if (!res.ok) throw new Error("Error al traer la información");
-    setIsLoading(false);
     const json = await res.json();
     setQuiz(json);
   };
 
   useEffect(() => {
     quizFetch();
+    setIsLoading(false);
   }, []);
 
   return (
     <>
+      <h1>Seleccionar quiz:</h1>
       {isLoading && <span>Loading... </span>}
-      {quiz.map((q) => (
-        <QuizSelectorCard quiz={q} />
+      {quiz.map((quiz) => (
+        <QuizSelectorCard quiz={quiz} />
       ))}
     </>
   );

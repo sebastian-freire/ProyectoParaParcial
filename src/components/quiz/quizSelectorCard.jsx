@@ -5,7 +5,7 @@ function QuizSelectorCard({ quiz }) {
   return (
     <>
       <div className="container">
-        <Link to={`/quiz/${quiz.id_quiz}`}>
+        <Link to={`/quiz/${quiz.id}`}>
           {quiz.name} : {quiz.description}
         </Link>
       </div>

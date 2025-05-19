@@ -1,13 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function QuizCard({ quiz }) {
+function QuizCard({ question }) {
   return (
     <>
       <div className="container">
-        <Link to={`/question/${quiz.id_quiz}`}>
-          {quiz.name} : {quiz.description}
-        </Link>
+        <Link to={`/question/${question.id}`}>{question.question_name}</Link>
       </div>
     </>
   );
