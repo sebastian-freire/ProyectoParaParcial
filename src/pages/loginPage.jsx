@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import { useUser } from "../context/userContext";
-import { Navigate, Outlet, useNavigate } from "react-router-dom";
+import { Navigate, Outlet, useNavigate, Link } from "react-router-dom";
 
 function LoginPage() {
-  const { login, logout } = useUser();
+  const { login, logout, isLoggedIn } = useUser();
 
   const usernameInput = useRef(null);
 
@@ -30,6 +30,14 @@ function LoginPage() {
   return (
     <>
       <h1>log in</h1>
+      {isLoggedIn && (
+        <>
+          <Link to="/quiz_selector">Ir a Quiz Selector</Link>
+          <br />
+          <br />
+        </>
+      )}
+
       <input
         type="text"
         id="username"

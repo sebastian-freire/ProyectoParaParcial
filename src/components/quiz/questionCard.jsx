@@ -17,7 +17,7 @@ function QuestionCard({ question }) {
         />
       )}
       {!multiple && <TestQuestion id_entrante={question.id} />}
-      <button>Contestar</button>
+      
     </>
   );
 }

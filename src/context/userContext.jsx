@@ -1,17 +1,31 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
-const UserContext = createContext();
+const UserContext = createContext(null);
 
-export const useUser = () => {
-  const context = useContext(UserContext);
-  if (context === undefined) {
-    throw new Error("useUser must be used within a UserProvider");
-  }
-  return context;
-};
+const LOCAL_STORAGE_USERNAME_KEY = "app_username";
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(() => {
+    try {
+      const savedUsername = localStorage.getItem(LOCAL_STORAGE_USERNAME_KEY);
+      return savedUsername ? JSON.parse(savedUsername) : null;
+    } catch (error) {
+      console.error("Error reading from localStorage", error);
+      return null;
+    }
+  });
+
+  useEffect(() => {
+    try {
+      if (user !== null) {
+        localStorage.setItem(LOCAL_STORAGE_USERNAME_KEY, JSON.stringify(user));
+      } else {
+        localStorage.removeItem(LOCAL_STORAGE_USERNAME_KEY);
+      }
+    } catch (error) {
+      console.error("Error writing to localStorage", error);
+    }
+  }, [user]);
 
   const login = (nuevoUsuario) => {
     setUser(nuevoUsuario);
@@ -32,4 +46,12 @@ export const UserProvider = ({ children }) => {
   return (
     <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
   );
+};
+
+export const useUser = () => {
+  const context = useContext(UserContext);
+  if (context === undefined) {
+    throw new Error("useUser must be used within a UserProvider");
+  }
+  return context;
 };

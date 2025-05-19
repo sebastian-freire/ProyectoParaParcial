@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 import QuizCard from "../components/quiz/quizCard";
 
 function QuizPage() {
-  const { id } = useParams();
-  const quizId = parseInt(id);
+  const { id_quiz } = useParams();
+  const quizId = parseInt(id_quiz);
 
   const [quiz, setQuiz] = useState([]);
   const [question, setQuestion] = useState([]);
@@ -40,7 +40,6 @@ function QuizPage() {
       <h1>{quiz.name}</h1>
       <h4>Estas viendo las preguntas del quiz: {quizId}</h4>
       <Link to="/quiz_selector">Volver a Quiz Selector</Link>
-      
 
       {!isLoading && (
         <div className="app-container">

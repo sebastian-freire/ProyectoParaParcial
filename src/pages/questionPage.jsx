@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 import QuestionCard from "../components/quiz/questionCard";
 
 function QuestionPage() {
-  const { id } = useParams();
-  const questionId = parseInt(id);
+  const { id_question } = useParams();
+  const questionId = parseInt(id_question);
 
   const [question, setQuestion] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
