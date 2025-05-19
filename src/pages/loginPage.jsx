@@ -13,7 +13,6 @@ function LoginPage() {
     const username = usernameInput.current.value;
 
     if (username.trim() === "") {
-      alert("Por favor, ingresa un nombre de usuario.");
       return;
     }
 

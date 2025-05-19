@@ -1,6 +1,6 @@
 //Aca selecciono la respuesta de la pregunta.
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import QuestionCard from "../components/quiz/questionCard";
 
@@ -17,17 +17,24 @@ function QuestionPage() {
     if (!res.ok) throw new Error("Error al traer la información");
     const json = await res.json();
     setQuestion(json);
+    setIsLoading(false);
   };
 
   useEffect(() => {
+    setIsLoading(true);
     questionsFetch();
-    setIsLoading(false);
   }, []);
   return (
     <>
-      {isLoading && <span>Loading...</span>}
       <h1>Pregunta {question.id}:</h1>
-      <QuestionCard question={question} />
+      <Link to="/quiz_selector">Volver a Quiz Selector</Link>
+      {isLoading && <span>Loading...</span>}
+
+      {!isLoading && (
+        <div className="app-container">
+          <QuestionCard question={question} />
+        </div>
+      )}
     </>
   );
 }

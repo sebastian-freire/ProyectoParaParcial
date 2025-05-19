@@ -1,6 +1,6 @@
 //Aca selecciono la pregunta del rat: Pregunta1, pregunta2, pregunta3.
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import QuizCard from "../components/quiz/quizCard";
 
@@ -27,21 +27,28 @@ function QuizPage() {
     if (!res.ok) throw new Error("Error al traer la información");
     const json = await res.json();
     setQuestion(json.questions);
+    setIsLoading(false);
   };
 
   useEffect(() => {
+    setIsLoading(true);
     quizFetch();
     questionsFetch();
-    setIsLoading(false);
   }, []);
   return (
     <>
-      <h1>Estas viendo las preguntas del quiz: {quizId}</h1>
-      {isLoading && <span>Loading...</span>}
       <h1>{quiz.name}</h1>
-      {question.map((question) => (
-        <QuizCard question={question} />
-      ))}
+      <h4>Estas viendo las preguntas del quiz: {quizId}</h4>
+      <Link to="/quiz_selector">Volver a Quiz Selector</Link>
+      
+
+      {!isLoading && (
+        <div className="app-container">
+          {question.map((question) => (
+            <QuizCard question={question} />
+          ))}
+        </div>
+      )}
     </>
   );
 }

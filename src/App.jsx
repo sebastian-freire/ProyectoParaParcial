@@ -12,10 +12,9 @@ function App() {
   const { user } = useUser();
   return (
     <>
-      <Link to="/login">Ir a login</Link>
-      <Link to="/quiz_selector">Ir a Quiz Selector</Link>
-      <h3>Prueba de Usuario: {user}</h3>
+      <h4>Usuario logeado: {user}</h4>
       <Routes>
+        <Route path="/" element={<LoginPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
           path="/quiz_selector"

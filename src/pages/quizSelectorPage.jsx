@@ -1,5 +1,6 @@
 //Aca selecciono el rat: RAT1, RAT2, RAT3...
 import { React, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import QuizSelectorCard from "../components/quiz/quizSelectorCard";
 
 function QuizSelectorPage() {
@@ -12,20 +13,27 @@ function QuizSelectorPage() {
     if (!res.ok) throw new Error("Error al traer la información");
     const json = await res.json();
     setQuiz(json);
+    setIsLoading(false);
   };
 
   useEffect(() => {
     quizFetch();
-    setIsLoading(false);
   }, []);
 
   return (
     <>
       <h1>Seleccionar quiz:</h1>
+      <Link to="/login">Cambiar usuario</Link>
+
       {isLoading && <span>Loading... </span>}
-      {quiz.map((quiz) => (
-        <QuizSelectorCard quiz={quiz} />
-      ))}
+
+      {!isLoading && (
+        <div className="app-container">
+          {quiz.map((quiz) => (
+            <QuizSelectorCard quiz={quiz} />
+          ))}
+        </div>
+      )}
     </>
   );
 }

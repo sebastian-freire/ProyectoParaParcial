@@ -34,7 +34,7 @@
       "id": 2,
       "questions": [
         {
-          "id_question": 201,
+          "id": 201,
           "question_name": "¿Cuál es la capital de Francia?"
         },
         {
@@ -97,37 +97,37 @@
   ],
   "Answers": [
     {
-      "id": 101,
+      "id_question": 101,
       "user": "usuario1",
       "answer": "8",
       "date": "2025-05-14 10:30:00"
     },
     {
-      "id": 102,
+      "id_question": 102,
       "user": "usuario1",
       "answer": "8",
       "date": "2025-05-14 10:35:00"
     },
     {
-      "id": 201,
+      "id_question": 201,
       "user": "usuario2",
       "answer": "París",
       "date": "2025-05-14 11:00:00"
     },
     {
-      "id": 202,
+      "id_question": 202,
       "user": "usuario2",
       "answer": "América",
       "date": "2025-05-14 11:05:00"
     },
     {
-      "id": 301,
+      "id_question": 301,
       "user": "usuario3",
       "answer": "Hoy me siento motivado y con energía.",
       "date": "2025-05-14 12:00:00"
     },
     {
-      "id": 302,
+      "id_question": 302,
       "user": "usuario3",
       "answer": "Creo que la tecnología ha mejorado el acceso a la educación, pero también puede distraer.",
       "date": "2025-05-14 12:10:00"
