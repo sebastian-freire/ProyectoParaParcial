@@ -1,22 +1,15 @@
-import { Routes, Route, Navigate } from "react-router-dom";
-import LoginPage from "./pages/loginPage";
-import QuizSelectorPage from "./pages/quizSelectorPage";
-import QuizPage from "./pages/quizPage";
-import "./App.css";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import WizardWrapper from "./wizard/WizardWrapper";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Routes>
-        <Route path="/*" element={<Navigate replace to="/login" />} />
-
-        <Route path="/login" element={<LoginPage />} />
-
-        <Route path="/quiz_selector" element={<QuizSelectorPage />} />
-
-        <Route path="/quiz" element={<QuizPage />} />
+        {/* Si estoy en "/", redirige automáticamente a "/wizard/step1" */}
+        <Route path="/" element={<Navigate to="/wizard/Usuario" />} />
+        <Route path="/wizard/*" element={<WizardWrapper />} />
       </Routes>
-    </>
+    </BrowserRouter>
   );
 }
 
