@@ -34,7 +34,7 @@ function App() {
         />
 
         <Route
-          path="/question/:id_question"
+          path="/quiz/:id_quiz/question/:id_question"
           element={
             <ProtectedRoute>
               <QuestionPage />

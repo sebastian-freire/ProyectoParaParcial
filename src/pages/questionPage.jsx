@@ -5,8 +5,9 @@ import { useEffect, useState } from "react";
 import QuestionCard from "../components/quiz/questionCard";
 
 function QuestionPage() {
-  const { id_question } = useParams();
+  const { id_quiz, id_question } = useParams();
   const questionId = parseInt(id_question);
+  const quizId = parseInt(id_quiz);
 
   const [question, setQuestion] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -28,6 +29,7 @@ function QuestionPage() {
     <>
       <h1>Pregunta {question.id}:</h1>
       <Link to="/quiz_selector">Volver a Quiz Selector</Link>
+      <Link to={`/quiz/${quizId}`}>Volver a Quiz {quizId}</Link>
       {isLoading && <span>Loading...</span>}
 
       {!isLoading && (

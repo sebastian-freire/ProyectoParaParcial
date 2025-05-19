@@ -10,14 +10,14 @@ function QuestionCard({ question }) {
       <div className="container">
         <h2>{question.question_name}</h2>
       </div>
-      {multiple && (
+      {multiple ? (
         <MultipleQuestion
           id_entrante={question.id}
           options={question.options}
         />
+      ) : (
+        <TestQuestion id_entrante={question.id} />
       )}
-      {!multiple && <TestQuestion id_entrante={question.id} />}
-      
     </>
   );
 }

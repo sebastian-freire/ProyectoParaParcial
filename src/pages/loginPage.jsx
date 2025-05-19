@@ -4,29 +4,20 @@ import { Navigate, Outlet, useNavigate, Link } from "react-router-dom";
 
 function LoginPage() {
   const { login, logout, isLoggedIn } = useUser();
-
   const usernameInput = useRef(null);
-
   const navigate = useNavigate();
-
   const handleLoginClick = () => {
     const username = usernameInput.current.value;
-
     if (username.trim() === "") {
       return;
     }
-
     login(username);
     usernameInput.current.value = "";
-
-    console.log("navegando...");
     navigate("/quiz_selector");
   };
-
   const handleLogoutClick = () => {
     logout();
   };
-
   return (
     <>
       <h1>log in</h1>

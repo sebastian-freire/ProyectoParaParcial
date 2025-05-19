@@ -44,7 +44,7 @@ function QuizPage() {
       {!isLoading && (
         <div className="app-container">
           {question.map((question) => (
-            <QuizCard question={question} />
+            <QuizCard id_quiz={id_quiz} question={question} />
           ))}
         </div>
       )}
