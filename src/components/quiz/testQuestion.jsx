@@ -10,18 +10,14 @@ function TestQuestion({ id_entrante }) {
   const [isLoading, setIsLoading] = useState(true);
 
   const answerFetch = async () => {
-    const URL = `http://localhost:3000/Answers`;
+    const URL = `http://localhost:3000/Answers?id_question=${id_entrante}&user=${user}`;
     const res = await fetch(URL);
     if (!res.ok) throw new Error("Error al traer la información");
     const json = await res.json();
-    const filtrado = await json.filter((jsonRow) => {
-      console.log(id_entrante);
-      return jsonRow.id_question == id_entrante && jsonRow.user == user;
-    });
     setIsLoading(false);
-    setAnswer(filtrado);
-    if (filtrado.length > 0) {
-      setFecha(filtrado[0].date);
+    setAnswer(json);
+    if (json.length > 0) {
+      setFecha(json[0].date);
     }
   };
 
