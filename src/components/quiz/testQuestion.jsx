@@ -33,9 +33,9 @@ function TestQuestion({ id_entrante }) {
         <>
           {answer.length > 0 && <span>{answer[0].date}</span>}
           {answer.length > 0 ? (
-            <input type="text" value={answer[0].answer} />
+            <textarea>{answer[0].answer}</textarea>
           ) : (
-            <input type="text" />
+            <textarea></textarea>
           )}
         </>
       )}

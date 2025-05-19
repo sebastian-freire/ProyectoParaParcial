@@ -98,3 +98,21 @@ button:focus {
   outline: 2px solid #666;
   outline-offset: 2px;
 }
+
+textarea {
+  display: block; /* Asegura que ocupe su propia línea */
+  width: 100%; /* Ocupa todo el ancho disponible del contenedor */
+  min-height: 180px; /* Altura mínima para que sea grande (ajusta este valor) */
+  padding: 12px 15px; /* Espaciado interno (arriba/abajo y izquierda/derecha) */
+  margin-bottom: 15px; /* Espacio debajo del textarea */
+  border: 1px solid #dcdcdc; /* Borde fino y gris claro */
+  border-radius: 4px; /* Bordes ligeramente redondeados, similar a los botones */
+  background-color: #ffffff; /* Fondo blanco */
+  color: #333; /* Color del texto principal */
+  font-size: 1rem; /* Tamaño de fuente base */
+  line-height: 1.5; /* Espaciado entre líneas para mejor legibilidad */
+  font-family: inherit; /* Hereda la fuente del cuerpo del documento */
+  resize: vertical; /* Permite al usuario redimensionar solo verticalmente */
+  box-sizing: border-box; /* Incluye padding y borde en el ancho/alto total */
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Transición suave para el foco */
+}
