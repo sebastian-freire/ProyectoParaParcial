@@ -6,6 +6,8 @@ import QuestionPage from "./pages/questionPage";
 import ProtectedRoute from "./ProtectedRoute";
 import "./App.css";
 
+//import { useTheme } from "./context/themeContext"
+
 import { useUser } from "./context/userContext";
 
 function App() {

@@ -37,7 +37,7 @@ function LoginPage() {
         required
       />
       <button onClick={handleLoginClick}>Iniciar Sesión</button>
-      <button onClick={handleLogoutClick}>Cerrar Sesión</button>
+      {isLoggedIn && <button onClick={handleLogoutClick}>Cerrar Sesión</button>}
     </>
   );
 }

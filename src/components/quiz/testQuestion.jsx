@@ -4,10 +4,10 @@ import { useUser } from "../../context/userContext";
 
 function TestQuestion({ id_entrante }) {
   const { user } = useUser();
-  const [answer, setAnswer] = useState([]);
+  const [answer, setAnswer] = useState(null);
   const currentDate = new Date();
-  const [fecha, setFecha] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  console.log({ answer }); // FIXME
 
   const answerFetch = async () => {
     const URL = `http://localhost:3000/Answers?id_question=${id_entrante}&user=${user}`;
@@ -15,10 +15,7 @@ function TestQuestion({ id_entrante }) {
     if (!res.ok) throw new Error("Error al traer la información");
     const json = await res.json();
     setIsLoading(false);
-    setAnswer(json);
-    if (json.length > 0) {
-      setFecha(json[0].date);
-    }
+    setAnswer(json[0]);
   };
 
   useEffect(() => {
@@ -30,17 +27,13 @@ function TestQuestion({ id_entrante }) {
 
   const answerQuestion = async () => {
     const newAnswerValue = answerInput.current.value;
-    if (!newAnswerValue.trim()) {
-      alert("Por favor, escribe una respuesta.");
-      return;
-    }
     const dateString =
       currentDate.toLocaleDateString() + " " + currentDate.toLocaleTimeString();
     try {
       let fetchResponse;
-      if (answer.length > 0) {
+      if (answer) {
         fetchResponse = await fetch(
-          `http://localhost:3000/Answers/${answer[0].id}`,
+          `http://localhost:3000/Answers/${answer.id}`,
           {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
@@ -63,15 +56,14 @@ function TestQuestion({ id_entrante }) {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(newAnswerPost)
         });
-      }
 
-      if (!fetchResponse.ok) {
-        throw new Error(
-          `Error al guardar la respuesta: ${fetchResponse.statusText}`
-        );
+        if (!fetchResponse.ok) {
+          throw new Error(
+            `Error al guardar la respuesta: ${fetchResponse.statusText}`
+          );
+        }
       }
-
-      setFecha(dateString);
+      answerFetch();
     } catch (error) {
       console.error("Hubo un error al enviar la respuesta:", error);
     }
@@ -82,14 +74,9 @@ function TestQuestion({ id_entrante }) {
       {isLoading && <span>Loading...</span>}
       {!isLoading && (
         <>
-          {answer.length > 0 ? (
-            <>
-              <span>{fecha}</span>
-              <textarea ref={answerInput}>{answer[0].answer}</textarea>
-            </>
-          ) : (
-            <textarea ref={answerInput}></textarea>
-          )}
+          <span>{answer?.date ?? ""}</span>
+          <textarea ref={answerInput} defaultValue={answer?.answer ?? ""} />
+
           <button onClick={answerQuestion}>Contestar</button>
         </>
       )}
