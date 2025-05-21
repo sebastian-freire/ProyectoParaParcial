@@ -8,16 +8,18 @@ function MultipleQuestion({ id_entrante, options }) {
   const [answer, setAnswer] = useState(null);
   const currentDate = new Date();
   const [isLoading, setIsLoading] = useState(true);
-  console.log({ answer }); // FIXME
+  //console.log({ answer }); // FIXME
 
+  //Se fija si el usuario tiene una respuesta para la pregunta (para sobreescribirla)
   const answerFetch = async () => {
     const URL = `http://localhost:3000/Answers?id_question=${id_entrante}&user=${user}`;
     const res = await fetch(URL);
     if (!res.ok) throw new Error("Error al traer la información");
     const json = await res.json();
     setIsLoading(false);
-    setAnswer(json[0]);
-    setSelectedCheck(json[0]?.answer);
+    setAnswer(json[0]); //Guarda la respuesta si existe en el estado answer
+    console.log(json[0]?.answer);
+    setSelectedCheck(json[0]?.answer); //Guarda la opcion seleccionada en el radiobutton
   };
 
   useEffect(() => {
@@ -31,7 +33,7 @@ function MultipleQuestion({ id_entrante, options }) {
       currentDate.toLocaleDateString() + " " + currentDate.toLocaleTimeString();
     try {
       let fetchResponse;
-      if (answer) {
+      if (answer) { //Si existe una respuesta, se actualiza
         fetchResponse = await fetch(
           `http://localhost:3000/Answers/${answer.id}`,
           {
@@ -43,7 +45,7 @@ function MultipleQuestion({ id_entrante, options }) {
             })
           }
         );
-      } else {
+      } else { //Si no existe una respuesta, se crea una nueva
         const newAnswerPost = {
           id_question: id_entrante,
           user: user,
@@ -71,8 +73,9 @@ function MultipleQuestion({ id_entrante, options }) {
 
   const [selectedCheck, setSelectedCheck] = useState(null);
 
+  //Cada vez que se selecciona una opcion, se actualiza el estado selectedCheck. Asi el selectedCheck guarda la opcion del radiobutton
   const handleFruitChange = (event) => {
-    setSelectedCheck(event.target.value);
+    setSelectedCheck(event.target.value); //Carga la ultima opcion seleccionada
   };
 
   return (
@@ -80,7 +83,7 @@ function MultipleQuestion({ id_entrante, options }) {
       {isLoading && <span>Loading...</span>}
       {!isLoading && (
         <>
-          <span>{answer?.date}</span>
+          <span>{answer?.date /*Fecha de la respuesta anterior si hay */}</span> 
           <ul>
             {options.map((option, index) => (
               <>
@@ -90,10 +93,10 @@ function MultipleQuestion({ id_entrante, options }) {
                     id={index}
                     name="grupoColores"
                     value={option}
-                    checked={option == selectedCheck}
+                    checked={option == selectedCheck} /*Es para que se marque la última opcion seleccionada*/
                     onChange={handleFruitChange}
                   />
-                  <label htmlFor={index}>{option}</label>
+                  <label htmlFor={index}>{option  /*Muestra el texto de la opcion*/}</label>
                 </li>
               </>
             ))}

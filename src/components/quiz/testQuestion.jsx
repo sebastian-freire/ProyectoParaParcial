@@ -7,7 +7,7 @@ function TestQuestion({ id_entrante }) {
   const [answer, setAnswer] = useState(null);
   const currentDate = new Date();
   const [isLoading, setIsLoading] = useState(true);
-  console.log({ answer }); // FIXME
+  //console.log({ answer }); // FIXME
 
   const answerFetch = async () => {
     const URL = `http://localhost:3000/Answers?id_question=${id_entrante}&user=${user}`;
@@ -74,8 +74,8 @@ function TestQuestion({ id_entrante }) {
       {isLoading && <span>Loading...</span>}
       {!isLoading && (
         <>
-          <span>{answer?.date ?? ""}</span>
-          <textarea ref={answerInput} defaultValue={answer?.answer ?? ""} />
+          <span>{answer?.date ?? "" /*Fecha de la respuesta anterior si hay*/} </span>
+          <textarea ref={answerInput} defaultValue={answer?.answer ?? "" /*Carga el valor de la respuesta anterior si hay*/} /> 
 
           <button onClick={answerQuestion}>Contestar</button>
         </>

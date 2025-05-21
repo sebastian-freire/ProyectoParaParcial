@@ -30,6 +30,7 @@ export const UserProvider = ({ children }) => {
   const login = (nuevoUsuario) => {
     setUser(nuevoUsuario);
     console.log(`Nuevo user logeado: ${nuevoUsuario}`);
+    console.log('localStorage actual:', localStorage.getItem('app_username'))
   };
 
   const logout = () => {

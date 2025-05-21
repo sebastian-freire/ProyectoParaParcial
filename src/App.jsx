@@ -4,9 +4,20 @@ import QuizSelectorPage from "./pages/quizSelectorPage";
 import QuizPage from "./pages/quizPage";
 import QuestionPage from "./pages/questionPage";
 import ProtectedRoute from "./ProtectedRoute";
+import ResultsPage from "./pages/resultsPage";
 import "./App.css";
 
 //import { useTheme } from "./context/themeContext"
+
+/*
+Flujo:                                      Componente
+1. Login (loginPage) 
+2. QuizSelector (quizSelectorPage)          QuizSelectorCard (se le pasa el quiz y redirige a /quiz/:id_quiz)
+3. Quiz (quizPage)                          QuizCard (se le pasa el quiz y redirige a /quiz/:id_quiz/question/:id_question)
+4. Question (questionPage)                  QuestionCard(Se le pasa la pregunta y decide si es multiple o test), MultipleQuestion(Se le pasa el id y las opciones), TestQuestion(Se le pasa el id y el usuario)
+5. Result (resultPage) -> No implementado
+
+*/
 
 import { useUser } from "./context/userContext";
 
@@ -43,9 +54,19 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        <Route
+          path="/results"
+          element={
+            <ProtectedRoute>
+              <ResultsPage />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </>
   );
 }
 
 export default App;
+  

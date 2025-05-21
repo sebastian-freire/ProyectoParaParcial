@@ -3,6 +3,21 @@ import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import QuizSelectorCard from "../components/quiz/quizSelectorCard";
 
+/*
+API (http://localhost:3000/Quizes)
+    ↓
+quizFetch()
+    ↓
+Estado quiz[]
+    ↓
+quiz.map()
+    ↓
+QuizSelectorCard
+    ↓
+Enlace a QuizPage
+
+*/
+
 function QuizSelectorPage() {
   const [quiz, setQuiz] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -25,6 +40,12 @@ function QuizSelectorPage() {
       <h1>Seleccionar quiz:</h1>
       <Link to="/login">Cambiar usuario</Link>
 
+
+      {/*
+      Si el primer operando es false, retorna el primer operando (false)
+      Si el primer operando es true, retorna el segundo operando
+      */}
+
       {isLoading && <span>Loading... </span>}
 
       {!isLoading && (
@@ -34,6 +55,7 @@ function QuizSelectorPage() {
           ))}
         </div>
       )}
+      <Link to="/results">Resultados</Link>
     </>
   );
 }
