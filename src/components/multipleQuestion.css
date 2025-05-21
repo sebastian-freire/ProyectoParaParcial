@@ -1,0 +1,21 @@
+/* Contenedor principal de las respuestas en vertical */
+ul {
+  display: flex; /* Usamos flexbox para controlar la dirección */
+  flex-direction: column; /* Apila los elementos hijos (las opciones) verticalmente */
+  gap: 10px; /* Añade espacio entre cada opción en la columna */
+  margin-top: 15px; /* Espacio por encima del grupo de respuestas */
+  padding: 0; /* Elimina el padding por defecto de las listas si usas ul */
+  list-style: none; /* Elimina los marcadores de lista si usas ul */
+}
+
+label {
+  color: #333; /* Color del texto (un gris oscuro) */
+  font-size: 1.1em; /* Tamaño de la fuente (2.5 veces el tamaño base del texto) */
+  text-align: center; /* Centra el texto horizontalmente */
+  margin-top: 0; /* Elimina el margen superior por defecto */
+  margin-bottom: 20px; /* Añade un margen inferior */
+  padding: 10px; /* Añade un relleno alrededor del texto */
+  font-family: "Arial", sans-serif; /* Cambia la fuente (usa una fuente web si es necesario) */
+  text-transform: uppercase; /* Convierte el texto a mayúsculas */
+  letter-spacing: 2px; /* Espaciado entre letras */
+}

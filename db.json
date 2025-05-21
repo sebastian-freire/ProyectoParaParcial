@@ -1,67 +1,115 @@
 {
   "Quizes": [
     {
-      "id_quiz": 1,
+      "id": "1",
       "name": "Matemáticas Básicas",
       "description": "Quiz de operaciones aritméticas básicas"
     },
     {
-      "id_quiz": 2,
+      "id": "2",
       "name": "Cultura General",
       "description": "Prueba de conocimientos generales"
     },
     {
-      "id_quiz": 3,
+      "id": "3",
       "name": "Opinión Personal",
       "description": "Preguntas abiertas de reflexión"
     }
   ],
   "Quizes_questions": [
     {
-      "1": {
-        "id_questions": [101, 102]
-      },
-      "2": {
-        "id_questions": [201, 202]
-      },
-      "3": {
-        "id_questions": [301, 302]
-      }
+      "id": "1",
+      "questions": [
+        {
+          "id": 101,
+          "question_name": "¿Cuánto es 5 + 3?"
+        },
+        {
+          "id": 102,
+          "question_name": "¿Cuánto es 12 - 4?"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "questions": [
+        {
+          "id": 201,
+          "question_name": "¿Cuál es la capital de Francia?"
+        },
+        {
+          "id": 202,
+          "question_name": "¿En qué continente está Brasil?"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "questions": [
+        {
+          "id": 301,
+          "question_name": "Describe brevemente cómo te sientes hoy."
+        },
+        {
+          "id": 302,
+          "question_name": "¿Qué opinas sobre el impacto de la tecnología en la educación?"
+        }
+      ]
     }
   ],
   "Question": [
     {
-      "id_question": 101,
+      "id": "101",
       "question_name": "¿Cuánto es 5 + 3?",
       "type": "multiple_choice",
-      "options": ["6", "7", "8", "9"]
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
     },
     {
-      "id_question": 102,
+      "id": "102",
       "question_name": "¿Cuánto es 12 - 4?",
       "type": "multiple_choice",
-      "options": ["6", "7", "8", "9"]
+      "options": [
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
     },
     {
-      "id_question": 201,
+      "id": "201",
       "question_name": "¿Cuál es la capital de Francia?",
       "type": "multiple_choice",
-      "options": ["Madrid", "París", "Berlín", "Londres"]
+      "options": [
+        "Madrid",
+        "París",
+        "Berlín",
+        "Londres"
+      ]
     },
     {
-      "id_question": 202,
+      "id": "202",
       "question_name": "¿En qué continente está Brasil?",
       "type": "multiple_choice",
-      "options": ["Europa", "África", "América", "Asia"]
+      "options": [
+        "Europa",
+        "África",
+        "América",
+        "Asia"
+      ]
     },
     {
-      "id_question": 301,
+      "id": "301",
       "question_name": "Describe brevemente cómo te sientes hoy.",
       "type": "text",
       "options": []
     },
     {
-      "id_question": 302,
+      "id": "302",
       "question_name": "¿Qué opinas sobre el impacto de la tecnología en la educación?",
       "type": "text",
       "options": []
@@ -69,40 +117,170 @@
   ],
   "Answers": [
     {
+      "id": "1",
       "id_question": 101,
       "user": "usuario1",
-      "answer": "8",
-      "date": "2025-05-14 10:30:00"
+      "answer": "9",
+      "date": "19/5/2025 20:49:42"
     },
     {
+      "id": "2",
       "id_question": 102,
       "user": "usuario1",
-      "answer": "8",
-      "date": "2025-05-14 10:35:00"
+      "answer": "7",
+      "date": "19/5/2025 20:49:52"
     },
     {
+      "id": "3",
       "id_question": 201,
       "user": "usuario2",
       "answer": "París",
       "date": "2025-05-14 11:00:00"
     },
     {
+      "id": "4",
       "id_question": 202,
       "user": "usuario2",
       "answer": "América",
       "date": "2025-05-14 11:05:00"
     },
     {
+      "id": "5",
       "id_question": 301,
       "user": "usuario3",
-      "answer": "Hoy me siento motivado y con energía.",
-      "date": "2025-05-14 12:00:00"
+      "answer": "Hoy me siento motivado y con energía. Te amosss, Constanza.",
+      "date": "19/5/2025 20:53:20"
     },
     {
+      "id": "6",
       "id_question": 302,
       "user": "usuario3",
-      "answer": "Creo que la tecnología ha mejorado el acceso a la educación, pero también puede distraer.",
-      "date": "2025-05-14 12:10:00"
+      "answer": "Creo que la tecnología ha mejorado el acceso a la educación, pero también puede distraer ohaaaaassssaa.",
+      "date": "19/5/2025 17:08:52"
+    },
+    {
+      "id": "7",
+      "id_question": "302",
+      "user": "se",
+      "answer": "dasdsasssdadasddsss",
+      "date": "19/5/2025 18:28:48"
+    },
+    {
+      "id": "333e",
+      "id_question": "301",
+      "user": "se",
+      "answer": "asddasdadd"
+    },
+    {
+      "id": "c673",
+      "id_question": "302",
+      "user": "sdaasd",
+      "answer": "asdsada"
+    },
+    {
+      "id": "71a0",
+      "id_question": "301",
+      "user": "2222",
+      "answer": "dsaddaasdasd",
+      "date": "19/5/2025 16:39:44"
+    },
+    {
+      "id": "7cae",
+      "id_question": "301",
+      "user": "2222",
+      "answer": "dsaddaasdasd",
+      "date": "19/5/2025 16:39:47"
+    },
+    {
+      "id": "91cc",
+      "id_question": "301",
+      "user": "2222",
+      "answer": "dsaddaasdasd",
+      "date": "19/5/2025 16:39:52"
+    },
+    {
+      "id": "cf2a",
+      "id_question": "301",
+      "user": "2222",
+      "answer": "dsaddaasdasd",
+      "date": "19/5/2025 16:39:53"
+    },
+    {
+      "id": "2b5b",
+      "id_question": "301",
+      "user": "2222",
+      "answer": "dsaddaasdasd",
+      "date": "19/5/2025 16:39:54"
+    },
+    {
+      "id": "957a",
+      "id_question": "301",
+      "user": "2222",
+      "answer": "dsaddaasdasd",
+      "date": "19/5/2025 16:39:54"
+    },
+    {
+      "id": "1034",
+      "id_question": "301",
+      "user": "2222",
+      "answer": "dsaddaasdasd",
+      "date": "19/5/2025 16:39:54"
+    },
+    {
+      "id": "c2ce",
+      "id_question": "302",
+      "user": "2222",
+      "answer": "holaholahola",
+      "date": "19/5/2025 16:44:12"
+    },
+    {
+      "id": "6d9a",
+      "id_question": "302",
+      "user": "usuario1",
+      "answer": "hola hola",
+      "date": "19/5/2025 20:31:20"
+    },
+    {
+      "id": "16b2",
+      "id_question": "101",
+      "user": "usuario3",
+      "answer": "9",
+      "date": "19/5/2025 21:02:15"
+    },
+    {
+      "id": "848b",
+      "id_question": "102",
+      "user": "usuario3",
+      "answer": "8",
+      "date": "19/5/2025 20:55:11"
+    },
+    {
+      "id": "063f",
+      "id_question": "101",
+      "user": "Pajon",
+      "answer": "8",
+      "date": "19/5/2025 21:10:13"
+    },
+    {
+      "id": "cae7",
+      "id_question": "102",
+      "user": "Pajon",
+      "answer": "7",
+      "date": "19/5/2025 21:10:16"
+    },
+    {
+      "id": "c6f0",
+      "id_question": "201",
+      "user": "Pajon",
+      "answer": "París",
+      "date": "19/5/2025 21:10:23"
+    },
+    {
+      "id": "2d8c",
+      "id_question": "301",
+      "user": "Pajon",
+      "answer": "kjhjkbh",
+      "date": "19/5/2025 21:10:30"
     }
   ]
 }

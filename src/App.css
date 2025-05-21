@@ -1,42 +1,118 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Estilos para el body (opcional pero recomendado para llenar la altura) */
+body {
+  margin: 0; /* Elimina el margen por defecto del body */
+  padding: 0; /* Elimina el padding por defecto del body */
+  min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
+  display: flex; /* Convierte el body en un contenedor flex */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+}
+
+/* Si centras el body, los estilos para .app-container podrían ser más simples */
+.app-container {
+  /* Puedes añadir estilos como width, max-width, padding, etc. aquí */
+  text-align: center; /* Opcional: centra el texto dentro del contenedor */
+  padding: 20px;
+  box-sizing: border-box; /* Incluye padding y borde en el ancho/alto total */
+}
+
+/* Estilos para el elemento h1 */
+h1 {
+  color: #333; /* Color del texto (un gris oscuro) */
+  font-size: 2.5em; /* Tamaño de la fuente (2.5 veces el tamaño base del texto) */
+  text-align: center; /* Centra el texto horizontalmente */
+  margin-top: 0; /* Elimina el margen superior por defecto */
+  margin-bottom: 20px; /* Añade un margen inferior */
+  padding: 10px; /* Añade un relleno alrededor del texto */
+  border-bottom: 2px solid #eee; /* Añade una línea inferior sutil */
+  font-family: "Arial", sans-serif; /* Cambia la fuente (usa una fuente web si es necesario) */
+  text-transform: uppercase; /* Convierte el texto a mayúsculas */
+  letter-spacing: 2px; /* Espaciado entre letras */
+}
+
+h2 {
+  color: #333; /* Color del texto (un gris oscuro) */
+  font-size: 1.2em; /* Tamaño de la fuente (2.5 veces el tamaño base del texto) */
+  text-align: center; /* Centra el texto horizontalmente */
+  margin-top: 0; /* Elimina el margen superior por defecto */
+  margin-bottom: 20px; /* Añade un margen inferior */
+  padding: 10px; /* Añade un relleno alrededor del texto */
+  font-family: "Arial", sans-serif; /* Cambia la fuente (usa una fuente web si es necesario) */
+  text-transform: uppercase; /* Convierte el texto a mayúsculas */
+  letter-spacing: 2px; /* Espaciado entre letras */
+}
+
+/* Estilos para el elemento h1 */
+h4 {
+  color: #333; /* Color del texto (un gris oscuro) */
+  font-size: 1em; /* Tamaño de la fuente (2.5 veces el tamaño base del texto) */
+  text-align: center; /* Centra el texto horizontalmente */
+  margin-top: 0; /* Elimina el margen superior por defecto */
+  margin-bottom: 20px; /* Añade un margen inferior */
+  padding: 10px; /* Añade un relleno alrededor del texto */
+  border-bottom: 2px solid #eee; /* Añade una línea inferior sutil */
+  font-family: "Arial", sans-serif; /* Cambia la fuente (usa una fuente web si es necesario) */
+  text-transform: uppercase; /* Convierte el texto a mayúsculas */
+  letter-spacing: 2px; /* Espaciado entre letras */
+}
+
+a,
+button,
+input {
+  display: inline-block;
+  padding: 10px 20px; /* Ajusta el tamaño con el padding */
+  font-size: 1rem; /* O píxeles como 16px, 18px */
+  font-weight: normal; /* O 'bold' si prefieres */
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Animación suave */
   text-align: center;
+
+  /* --- Estilos Minimalistas Tonos Grises/Negros --- */
+  color: #333; /* Texto gris oscuro */
+  background-color: transparent; /* Fondo transparente */
+  border: 1px solid #666; /* Borde gris medio y fino */
+  border-radius: 3px; /* Bordes ligeramente redondeados */
+
+  font-family: "Arial", sans-serif; /* Cambia la fuente (usa una fuente web si es necesario) */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Estado al pasar el mouse */
+a:hover,
+button:hover {
+  color: white; /* Texto blanco */
+  background-color: #333; /* Fondo gris oscuro */
+  border-color: #333; /* Borde también gris oscuro */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Estado al hacer clic */
+a:active,
+button:active {
+  background-color: #000; /* Fondo negro */
+  border-color: #000;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Estado de foco para accesibilidad */
+a:focus,
+button:focus {
+  outline: 2px solid #666;
+  outline-offset: 2px;
 }
 
-.card {
-  padding: 2em;
+textarea {
+  display: block; /* Asegura que ocupe su propia línea */
+  width: 100%; /* Ocupa todo el ancho disponible del contenedor */
+  min-height: 180px; /* Altura mínima para que sea grande (ajusta este valor) */
+  padding: 12px 15px; /* Espaciado interno (arriba/abajo y izquierda/derecha) */
+  margin-bottom: 15px; /* Espacio debajo del textarea */
+  border: 1px solid #dcdcdc; /* Borde fino y gris claro */
+  border-radius: 4px; /* Bordes ligeramente redondeados, similar a los botones */
+  background-color: #ffffff; /* Fondo blanco */
+  color: #333; /* Color del texto principal */
+  font-size: 1rem; /* Tamaño de fuente base */
+  line-height: 1.5; /* Espaciado entre líneas para mejor legibilidad */
+  font-family: inherit; /* Hereda la fuente del cuerpo del documento */
+  resize: vertical; /* Permite al usuario redimensionar solo verticalmente */
+  box-sizing: border-box; /* Incluye padding y borde en el ancho/alto total */
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Transición suave para el foco */
 }
-
-.read-the-docs {
-  color: #888;
-} */
