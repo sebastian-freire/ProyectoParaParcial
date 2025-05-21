@@ -1,0 +1,23 @@
+/* Estilos para el body (opcional pero recomendado para llenar la altura) */
+body {
+  margin: 0; /* Elimina el margen por defecto del body */
+  padding: 0; /* Elimina el padding por defecto del body */
+  min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
+  display: flex; /* Convierte el body en un contenedor flex */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+}
+
+/* Estilos para el elemento h1 */
+h1 {
+  color: #333; /* Color del texto (un gris oscuro) */
+  font-size: 2.5em; /* Tamaño de la fuente (2.5 veces el tamaño base del texto) */
+  text-align: center; /* Centra el texto horizontalmente */
+  margin-top: 0; /* Elimina el margen superior por defecto */
+  margin-bottom: 20px; /* Añade un margen inferior */
+  padding: 10px; /* Añade un relleno alrededor del texto */
+  border-bottom: 2px solid #eee; /* Añade una línea inferior sutil */
+  font-family: "Arial", sans-serif; /* Cambia la fuente (usa una fuente web si es necesario) */
+  text-transform: uppercase; /* Convierte el texto a mayúsculas */
+  letter-spacing: 2px; /* Espaciado entre letras */
+}

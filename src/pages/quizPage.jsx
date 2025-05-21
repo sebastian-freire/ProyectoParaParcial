@@ -40,12 +40,13 @@ function QuizPage() {
     quizFetch();
     questionsFetch();
   }, []);
+
   return (
     <>
       <h1>{quiz.name}</h1>
       <h4>Estas viendo las preguntas del quiz: {quizId}</h4>
-      <Link to="/quiz_selector">Volver a Quiz Selector</Link>
-      <Link to={`/quiz/${quizId}/create_question`}>
+      <Link to="/quiz_selector" className="button">Volver a Quiz Selector</Link>
+      <Link to={`/quiz/${quizId}/create_question`} className="button">
         Agregar pregunta al quiz
       </Link>
 

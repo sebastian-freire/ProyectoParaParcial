@@ -25,6 +25,7 @@ function QuestionPage() {
     setIsLoading(true);
     questionsFetch();
   }, []);
+  
   return (
     <>
       <h1>Pregunta {question.id}:</h1>

@@ -8,15 +8,28 @@ import ProtectedRoute from "./ProtectedRoute";
 import "./App.css";
 import ResultsPage from "./pages/resultsPage";
 
-//import { useTheme } from "./context/themeContext"
+import { useTheme } from "./context/themeContext";
 
 import { useUser } from "./context/userContext";
+import { useEffect } from "react";
 
 function App() {
   const { user } = useUser();
+
+  const { darkMode, toggleHandle } = useTheme();
+
+  useEffect(() => {
+    document.body.className = darkMode ? "dark-mode" : "light-mode";
+  }, [darkMode]);
+
   return (
     <>
+      <button onClick={toggleHandle} className="theme">
+        {darkMode ? "Light Mode ☀️" : "Dark Mode 🌙"}
+      </button>
+
       <h4>Usuario logeado: {user}</h4>
+
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/login" element={<LoginPage />} />

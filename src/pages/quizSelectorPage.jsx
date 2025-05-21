@@ -2,10 +2,15 @@
 import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import QuizSelectorCard from "../components/quizSelectorCard";
+import "./quizSelectorPage.css";
+
+import { useTheme } from "../context/themeContext";
 
 function QuizSelectorPage() {
   const [quiz, setQuiz] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const { darkMode } = useTheme();
 
   const quizFetch = async () => {
     const URL = `http://localhost:3000/Quizes`;
@@ -22,19 +27,25 @@ function QuizSelectorPage() {
 
   return (
     <>
-      <h1>Seleccionar quiz:</h1>
-      <Link to="/login">Cambiar usuario</Link>
-      <Link to="/results">Resultados</Link>
+      <div className={ darkMode ? "dark-mode" : "light-mode"}>
+        <h1>Seleccionar quiz:</h1>
+        <Link to="/login" className="button">
+          Cambiar usuario
+        </Link>
+        <Link to="/results" className="button">
+          Resultados
+        </Link>
 
-      {isLoading && <span>Loading... </span>}
+        {isLoading && <span>Loading... </span>}
 
-      {!isLoading && (
-        <div className="app-container">
-          {quiz.map((quiz) => (
-            <QuizSelectorCard quiz={quiz} />
-          ))}
-        </div>
-      )}
+        {!isLoading && (
+          <div className="app-container">
+            {quiz.map((quiz) => (
+              <QuizSelectorCard quiz={quiz} />
+            ))}
+          </div>
+        )}
+      </div>
     </>
   );
 }

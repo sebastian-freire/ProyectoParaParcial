@@ -2,6 +2,8 @@ import React from "react";
 import { useEffect, useState, useRef } from "react";
 import { useUser } from "../context/userContext";
 
+import "./testQuestion.css"
+
 function TestQuestion({ id_entrante }) {
   const { user } = useUser();
   const [answer, setAnswer] = useState(null);
@@ -75,7 +77,7 @@ function TestQuestion({ id_entrante }) {
       {!isLoading && (
         <>
           <span>{answer?.date ?? ""}</span>
-          <textarea ref={answerInput} defaultValue={answer?.answer ?? ""} />
+          <textarea ref={answerInput} defaultValue={answer?.answer ?? ""} className="mi-textarea"/>
 
           <button onClick={answerQuestion}>Contestar</button>
         </>

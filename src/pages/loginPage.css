@@ -1,0 +1,89 @@
+/* Estilos para el body (opcional pero recomendado para llenar la altura) */
+body {
+  margin: 0; /* Elimina el margen por defecto del body */
+  padding: 0; /* Elimina el padding por defecto del body */
+  min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
+  display: flex; /* Convierte el body en un contenedor flex */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+}
+
+.dark-mode{
+  background-color: black;
+}
+
+.dark-mode button {
+  color: white;
+  border: 1px solid white; /* Borde gris medio y fino */
+}
+
+.light-mode{
+  background-color: white;
+}
+
+
+.dark-mode h1 {
+  color: white; /* Color del texto (un gris oscuro) */
+  font-size: 2.5em; /* Tamaño de la fuente (2.5 veces el tamaño base del texto) */
+  text-align: center; /* Centra el texto horizontalmente */
+  margin-top: 0; /* Elimina el margen superior por defecto */
+  margin-bottom: 20px; /* Añade un margen inferior */
+  padding: 10px; /* Añade un relleno alrededor del texto */
+  border-bottom: 2px solid #eee; /* Añade una línea inferior sutil */
+  font-family: "Arial", sans-serif; /* Cambia la fuente (usa una fuente web si es necesario) */
+  text-transform: uppercase; /* Convierte el texto a mayúsculas */
+  letter-spacing: 2px; /* Espaciado entre letras */
+}
+
+/* Estilos para el elemento h1 */
+h1 {
+  color: #333; /* Color del texto (un gris oscuro) */
+  font-size: 2.5em; /* Tamaño de la fuente (2.5 veces el tamaño base del texto) */
+  text-align: center; /* Centra el texto horizontalmente */
+  margin-top: 0; /* Elimina el margen superior por defecto */
+  margin-bottom: 20px; /* Añade un margen inferior */
+  padding: 10px; /* Añade un relleno alrededor del texto */
+  border-bottom: 2px solid #eee; /* Añade una línea inferior sutil */
+  font-family: "Arial", sans-serif; /* Cambia la fuente (usa una fuente web si es necesario) */
+  text-transform: uppercase; /* Convierte el texto a mayúsculas */
+  letter-spacing: 2px; /* Espaciado entre letras */
+}
+
+button,
+input {
+  display: inline-block;
+  padding: 10px 20px; /* Ajusta el tamaño con el padding */
+  font-size: 1rem; /* O píxeles como 16px, 18px */
+  font-weight: normal; /* O 'bold' si prefieres */
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Animación suave */
+  text-align: center;
+
+  /* --- Estilos Minimalistas Tonos Grises/Negros --- */
+  color: #333; /* Texto gris oscuro */
+  background-color: transparent; /* Fondo transparente */
+  border: 1px solid #666; /* Borde gris medio y fino */
+  border-radius: 3px; /* Bordes ligeramente redondeados */
+
+  font-family: "Arial", sans-serif; /* Cambia la fuente (usa una fuente web si es necesario) */
+}
+
+/* Estado al pasar el mouse */
+button:hover {
+  color: white; /* Texto blanco */
+  background-color: #333; /* Fondo gris oscuro */
+  border-color: #333; /* Borde también gris oscuro */
+}
+
+/* Estado al hacer clic */
+button:active {
+  background-color: #000; /* Fondo negro */
+  border-color: #000;
+}
+
+/* Estado de foco para accesibilidad */
+button:focus {
+  outline: 2px solid #666;
+  outline-offset: 2px;
+}
