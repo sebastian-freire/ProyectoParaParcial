@@ -38,14 +38,27 @@ function CreateQuestion() {
   };
 
   const addQuestion = async () => {
+    //Esto esta incompleto, tendria que hacer un post a questions para publicar pregunta
+    //hago un fetch para saber que id se le asigno, la traigo usando ?y parametros
+    //recien ahi puedo subirla a quiz_questions
     const URL = `http://localhost:3000/Quizes_questions/${quizId}`;
     const res = await fetch(URL);
     if (!res.ok) throw new Error("Error al traer la información");
 
-    const quiz_questions = await res.json().questions;
+    const quiz_questions = await res.json();
     const newAnswerValue = answerText.current.value;
 
+    console.log(quiz_questions);
+
     try {
+      console.log(quiz_questions.questions);
+      const updatedQuestions = [
+        ...quiz_questions.questions,
+        {
+          question_name: newAnswerValue
+        }
+      ];
+
       const fetchResponse = await fetch(
         `http://localhost:3000/Quizes_questions/${quizId}`,
         {
@@ -53,7 +66,7 @@ function CreateQuestion() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             ...quiz_questions,
-            newAnswerValue
+            questions: updatedQuestions
           })
         }
       );
