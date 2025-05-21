@@ -1,12 +1,14 @@
 //Aca selecciono la pregunta del rat: Pregunta1, pregunta2, pregunta3.
 import React from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import QuizCard from "../components/quizCard";
 
 function QuizPage() {
   const { id_quiz } = useParams();
   const quizId = parseInt(id_quiz);
+
+  const navigate = useNavigate();
 
   const [quiz, setQuiz] = useState([]);
   const [question, setQuestion] = useState([]);
@@ -16,9 +18,10 @@ function QuizPage() {
   const quizFetch = async () => {
     const URL = `http://localhost:3000/Quizes/${quizId}`;
     const res = await fetch(URL);
-    if (!res.ok) throw new Error("Error al traer la información");
+    if (!res.ok) navigate("/quiz_selector");
     const json = await res.json();
     setIsLoading(false);
+
     setQuiz(json);
   };
 
