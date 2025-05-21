@@ -6,6 +6,7 @@ import QuestionPage from "./pages/questionPage";
 import CreateQuestion from "./pages/createQuestion";
 import ProtectedRoute from "./ProtectedRoute";
 import "./App.css";
+import ResultsPage from "./pages/resultsPage";
 
 //import { useTheme } from "./context/themeContext"
 
@@ -50,6 +51,15 @@ function App() {
           element={
             <ProtectedRoute>
               <QuestionPage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/results"
+          element={
+            <ProtectedRoute>
+              <ResultsPage />
             </ProtectedRoute>
           }
         />

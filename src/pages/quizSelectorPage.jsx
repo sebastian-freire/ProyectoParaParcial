@@ -24,6 +24,7 @@ function QuizSelectorPage() {
     <>
       <h1>Seleccionar quiz:</h1>
       <Link to="/login">Cambiar usuario</Link>
+      <Link to="/results">Resultados</Link>
 
       {isLoading && <span>Loading... </span>}
 
