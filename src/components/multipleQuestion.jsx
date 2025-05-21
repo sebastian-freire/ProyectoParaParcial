@@ -1,8 +1,9 @@
 import React from "react";
-import { useEffect, useState, useRef } from "react";
-import { useUser } from "../../context/userContext";
+import "./multipleQuestion.css";
+import { useEffect, useState } from "react";
+import { useUser } from "../context/userContext";
 
-function TestQuestion({ id_entrante }) {
+function MultipleQuestion({ id_entrante, options }) {
   const { user } = useUser();
   const [answer, setAnswer] = useState(null);
   const currentDate = new Date();
@@ -16,6 +17,7 @@ function TestQuestion({ id_entrante }) {
     const json = await res.json();
     setIsLoading(false);
     setAnswer(json[0]);
+    setSelectedCheck(json[0]?.answer);
   };
 
   useEffect(() => {
@@ -23,10 +25,8 @@ function TestQuestion({ id_entrante }) {
     answerFetch();
   }, []);
 
-  const answerInput = useRef(null);
-
   const answerQuestion = async () => {
-    const newAnswerValue = answerInput.current.value;
+    const newAnswerValue = selectedCheck;
     const dateString =
       currentDate.toLocaleDateString() + " " + currentDate.toLocaleTimeString();
     try {
@@ -69,19 +69,40 @@ function TestQuestion({ id_entrante }) {
     }
   };
 
+  const [selectedCheck, setSelectedCheck] = useState(null);
+
+  const handleCheckChange = (event) => {
+    setSelectedCheck(event.target.value);
+  };
+
   return (
     <>
       {isLoading && <span>Loading...</span>}
       {!isLoading && (
         <>
-          <span>{answer?.date ?? ""}</span>
-          <textarea ref={answerInput} defaultValue={answer?.answer ?? ""} />
-
-          <button onClick={answerQuestion}>Contestar</button>
+          <span>{answer?.date}</span>
+          <ul>
+            {options.map((option, index) => (
+              <>
+                <li>
+                  <input
+                    type="radio"
+                    id={index}
+                    name="grupoColores"
+                    value={option}
+                    checked={option == selectedCheck}
+                    onChange={handleCheckChange}
+                  />
+                  <label htmlFor={index}>{option}</label>
+                </li>
+              </>
+            ))}
+          </ul>
         </>
       )}
+      <button onClick={answerQuestion}>Contestar</button>
     </>
   );
 }
 
-export default TestQuestion;
+export default MultipleQuestion;

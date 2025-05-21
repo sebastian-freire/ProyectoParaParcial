@@ -3,6 +3,7 @@ import LoginPage from "./pages/loginPage";
 import QuizSelectorPage from "./pages/quizSelectorPage";
 import QuizPage from "./pages/quizPage";
 import QuestionPage from "./pages/questionPage";
+import CreateQuestion from "./pages/createQuestion";
 import ProtectedRoute from "./ProtectedRoute";
 import "./App.css";
 
@@ -31,6 +32,15 @@ function App() {
           element={
             <ProtectedRoute>
               <QuizPage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/quiz/:id_quiz/create_question"
+          element={
+            <ProtectedRoute>
+              <CreateQuestion />
             </ProtectedRoute>
           }
         />

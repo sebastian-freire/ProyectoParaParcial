@@ -1,9 +1,8 @@
 import React from "react";
-import "./multipleQuestion.css";
-import { useEffect, useState } from "react";
-import { useUser } from "../../context/userContext";
+import { useEffect, useState, useRef } from "react";
+import { useUser } from "../context/userContext";
 
-function MultipleQuestion({ id_entrante, options }) {
+function TestQuestion({ id_entrante }) {
   const { user } = useUser();
   const [answer, setAnswer] = useState(null);
   const currentDate = new Date();
@@ -17,7 +16,6 @@ function MultipleQuestion({ id_entrante, options }) {
     const json = await res.json();
     setIsLoading(false);
     setAnswer(json[0]);
-    setSelectedCheck(json[0]?.answer);
   };
 
   useEffect(() => {
@@ -25,8 +23,10 @@ function MultipleQuestion({ id_entrante, options }) {
     answerFetch();
   }, []);
 
+  const answerInput = useRef(null);
+
   const answerQuestion = async () => {
-    const newAnswerValue = selectedCheck;
+    const newAnswerValue = answerInput.current.value;
     const dateString =
       currentDate.toLocaleDateString() + " " + currentDate.toLocaleTimeString();
     try {
@@ -69,40 +69,19 @@ function MultipleQuestion({ id_entrante, options }) {
     }
   };
 
-  const [selectedCheck, setSelectedCheck] = useState(null);
-
-  const handleFruitChange = (event) => {
-    setSelectedCheck(event.target.value);
-  };
-
   return (
     <>
       {isLoading && <span>Loading...</span>}
       {!isLoading && (
         <>
-          <span>{answer?.date}</span>
-          <ul>
-            {options.map((option, index) => (
-              <>
-                <li>
-                  <input
-                    type="radio"
-                    id={index}
-                    name="grupoColores"
-                    value={option}
-                    checked={option == selectedCheck}
-                    onChange={handleFruitChange}
-                  />
-                  <label htmlFor={index}>{option}</label>
-                </li>
-              </>
-            ))}
-          </ul>
+          <span>{answer?.date ?? ""}</span>
+          <textarea ref={answerInput} defaultValue={answer?.answer ?? ""} />
+
+          <button onClick={answerQuestion}>Contestar</button>
         </>
       )}
-      <button onClick={answerQuestion}>Contestar</button>
     </>
   );
 }
 
-export default MultipleQuestion;
+export default TestQuestion;

@@ -1,7 +1,7 @@
 //Aca selecciono el rat: RAT1, RAT2, RAT3...
 import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import QuizSelectorCard from "../components/quiz/quizSelectorCard";
+import QuizSelectorCard from "../components/quizSelectorCard";
 
 function QuizSelectorPage() {
   const [quiz, setQuiz] = useState([]);

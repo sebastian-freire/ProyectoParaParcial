@@ -2,7 +2,7 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import QuestionCard from "../components/quiz/questionCard";
+import QuestionCard from "../components/questionCard";
 
 function QuestionPage() {
   const { id_quiz, id_question } = useParams();
